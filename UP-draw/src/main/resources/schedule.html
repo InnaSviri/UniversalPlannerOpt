@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты планирования (прогон <?runIndex?>)</title>
+</head>
+<body>
+<style><!--
+    .korpus > div, .korpus > input { display: none; }
+    .korpus label {
+        padding: 5px;
+        border: 1px solid #aaa;
+        line-height: 28px;
+        cursor: pointer;
+        position: relative;
+        bottom: 1px;
+        background: #fff;
+    }
+    .korpus input[type="radio"]:checked + label {
+        border-bottom: 2px solid #fff;
+    }
+    <?stretches.foreach .korpus > input:nth-of-type(~#):checked ~~ div:nth-of-type(~#)~^, ?> {
+        display: block;
+        padding: 5px;
+        border: 1px solid #aaa;
+    }
+
+    .main {
+        position: absolute;
+        width: 74%;
+        overflow: hidden;
+    }
+
+    .menu {
+        position: absolute;
+        width: 22%;
+        left: 77%;
+        overflow: auto;
+    }
+
+    .main svg {
+        background: #C0C0C0;
+    }
+
+    .main svg .grid text {
+        font-size: 10px;
+    }
+
+    .main svg .grid line {
+        stroke: #606060;
+        stroke-width: 1.2px;
+    }
+
+    .main svg .grid line.team-exch {
+        stroke-dasharray: 3, 2;
+    }
+
+    .main svg .grid line.hr-mark-highlight {
+        stroke: #E49B0F;
+        stroke-width: 5.4px;
+    }
+
+    .main svg .grid line.hr-mark-tframe {
+        stroke-dasharray: 0.6, 1.2;
+    }
+
+    .main svg .grid rect.sel {
+        fill-opacity: 0;
+        fill: #606060;
+    }
+
+    .main svg .grid rect.sel:hover {
+        fill-opacity: 0.25;
+    }
+
+    .main svg .trains polyline {
+        stroke: #A0A0A0;
+        stroke-width: 3.6px;
+        stroke-opacity: 0.5;
+    }
+
+    .main svg .trains polyline.hover {
+        stroke-width: 2.4px;
+        stroke: #8080C0;
+    }
+
+    .main svg .trains polyline.reserve {
+        stroke-dasharray: 6, 3.6;
+    }
+
+    .main svg .trains polyline.highlight,
+    .main svg .trains polyline.highlight.hover {
+        stroke-width: 2.4px;
+        stroke: #0020A0;
+    }
+
+    .menu .trains span {
+        color: #606060;
+        font-size: 12px;
+    }
+
+    .menu .trains span.hover {
+        cursor: pointer;
+        color: #8080C0;
+    }
+
+    .menu .trains span.highlight,
+    .menu .trains span.highlight.hover {
+        color: #0020A0;
+    }
+--></style>
+<div class="korpus">
+<?stretches.foreach <input type="radio" name="tab-~H" id="ear~#"/><label for="ear~#">~R</label>?>
+<?stretches.foreach <div id="stretch~#"><div class="main" id="main-~H"></div>
+    <div class="menu" id="menu-~H"></div></div>?>
+</div>
+<script type="text/javascript"><!--
+    <?include svg.js?>
+--></script>
+<script type="text/javascript"><!--
+    var RUN_INDEX = <?runIndex?>;
+    var STRETCHES = <?stretches?>;
+--></script>
+<script type="text/javascript"><!--
+    <?include draw.js?>
+--></script>
+</body>
+</html>

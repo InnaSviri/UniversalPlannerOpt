@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>UniversalPlanner</artifactId>
+        <groupId>ru.programpark</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ru.programpark</groupId>
+    <artifactId>UP-planner</artifactId>
+    <version>1.0</version>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+    <properties>
+        <org.slf4j.version>1.7.7</org.slf4j.version>
+        <log4j.version>1.2.17</log4j.version>
+        <junit.version>4.8.1</junit.version>
+        <lombok.version>1.16.6</lombok.version>
+        <optimization.version>v0.1.2</optimization.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>${lombok.version}</version>
+		    <scope>provided</scope>
+	    </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${org.slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>ru.programpark</groupId>
+            <artifactId>UP-entities</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ru.programpark</groupId>
+            <artifactId>UP-analyzer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.InnaSviri</groupId>
+            <artifactId>optimization</artifactId>
+            <version>${optimization.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
